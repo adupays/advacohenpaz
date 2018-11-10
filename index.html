@@ -1,0 +1,27 @@
+---
+layout: default
+title: Accueil
+permalink: /
+class: home
+---
+
+{% assign collection = site.collections | where: "label", 'gallery_home' | first %}
+{% assign sorted_collection = collection.docs | sort: 'rating' %}
+
+<div class="grid">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  {% for item in sorted_collection %}
+    <div class="grid-item">
+      <a href="{{ item.link }}">
+        <div class="image-overlay"></div>
+        <figure>
+          <img src="{{item.image_path | prepend: '/assets/img/home/'}}" alt="{{ item.title }}" />
+          <figcaption>
+            <h3>{{item.legend}}</h3>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  {% endfor %}
+</div>

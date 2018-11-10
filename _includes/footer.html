@@ -1,0 +1,11 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+  <div class="wrapper">
+    {%- include social.html -%}
+    {%- if site.author -%}
+      © {{ site.author | escape }} 2018
+    {%- else -%}
+      © {{ site.title | escape }} 2018
+    {%- endif -%}
+  </div>
+</footer>

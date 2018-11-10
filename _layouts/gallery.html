@@ -1,0 +1,43 @@
+---
+layout: default
+class: gallery
+---
+
+{% assign collection = site.collections | where: 'label', 'gallery_collaborations' | first %}
+{% assign sorted_collection = collection.docs | where: 'directory', page.directory | sort: 'rating' %}
+
+<article>
+  <hgroup>
+    {%- if page.pageTitle -%}
+      <h1 class="page-heading">{{ page.pageTitle }}</h1>
+    {%- endif -%}
+
+    {%- if page.subtitle -%}
+      <h2 class="page-subtitle">{{ page.subtitle }}</h2>
+    {%- endif -%}
+  </hgroup>
+
+  <section class="page-content text">
+    {{content}}
+  </section>
+
+  <section class="page-content">
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      {% for item in sorted_collection %}
+        <div class="grid-item">
+          <a href="{{ item.link }}">
+            <div class="image-overlay"></div>
+            <figure>
+              <img src="{{item.image_path | prepend: '/assets/img/gallery/'}}" alt="{{ item.title }}" />
+              <figcaption>
+                <h3>{{item.legend}}</h3>
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</article>

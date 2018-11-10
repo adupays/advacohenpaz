@@ -1,0 +1,31 @@
+---
+layout: page
+title: Collaborations Haute couture
+pageTitle: Adva Cohen-Paz x Tzuri Gueta
+permalink: /collaborations/
+class: 'collaborations'
+---
+
+Durant cinq années, j’ai dirigé et mené à bien les différentes étapes des projets de collaborations textiles Haute Couture et prêt-à-porter au sein de l’entreprise Tzuri Gueta. Grâce à la méthode brevetée de textile siliconé sont créées des broderies singulières et organiques, dont chaque élément est façonné à la main.
+De la rencontre avec le client naissent les premières idées. Un échange étroit d’inspirations, de considérations techniques et financières. Des maquettes au dessin définitif, la pièce de broderie prend forme, à plat ou en volume, sur base de tulle ou de dentelle, parfois à même la robe et avec le support de feuilles de placement et de patronage. En charge complète de la relation client, l’écoute de ses besoins et le respect de son univers et de ses exigences figuraient parmi mes priorités.
+
+{% assign collection = site.collections | where: "label", 'project_collaborations' | first %}
+{% assign sorted_collection = collection.docs | sort: 'rating' %}
+
+<div class="grid">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  {% for item in sorted_collection %}
+    <div class="grid-item">
+      <a href="{{ item.url }}">
+        <div class="image-overlay"></div>
+        <figure>
+          <img src="{{item.image_path | prepend: '/assets/img/gallery/'}}" alt="{{ item.title }}" />
+          <figcaption>
+            <h3>{{item.legend}}</h3>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  {% endfor %}
+</div>

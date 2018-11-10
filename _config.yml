@@ -1,0 +1,108 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Adva Cohen-Paz
+tagline: Styliste textile et bijoux
+email: advacohenpaz@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Portfolio d'Adva Cohen-Paz, diplomée du Studio Berçot. Spécialisée dans la création textile, la broderie et le design de bijoux.
+baseurl: '' # the subpath of your site, e.g. /blog
+url: '' # the base hostname & protocol for your site, e.g. http://example.com
+linkedin_username: adva-cohen-paz-a3194b58
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+header_pages:
+  - collaborations.html
+  - creations.html
+  - bijoux.html
+  - about.md
+
+collections_dir: collections
+collections:
+  gallery_home:
+    output: true
+    permalink: /:name
+  project_collaborations:
+    output: true
+    permalink: /collaborations/:name
+  gallery_collaborations:
+    output: true
+    permalink: /:name
+  project_creations:
+    output: true
+    permalink: /creations/:name
+  gallery_creations:
+    output: true
+    permalink: /:name
+  project_bijoux:
+    output: true
+    permalink: /bijoux/:name
+  gallery_bijoux:
+    output: true
+    permalink: /:name
+
+defaults:
+  - scope:
+      path: ''
+      type: 'gallery_home'
+    values:
+      layout: gallery
+  - scope:
+      path: ''
+      type: 'project_collaborations'
+    values:
+      layout: gallery
+  - scope:
+      path: ''
+      type: 'project_creations'
+    values:
+      layout: gallery
+  - scope:
+      path: ''
+      type: 'project_bijoux'
+    values:
+      layout: gallery
+  - scope:
+      path: ''
+      type: 'gallery_collaborations'
+    values:
+      layout: gallery
+  - scope:
+      path: ''
+      type: 'gallery_creations'
+    values:
+      layout: gallery
+  - scope:
+      path: ''
+      type: 'gallery_bijoux'
+    values:
+      layout: gallery
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
