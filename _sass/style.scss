@@ -1,0 +1,118 @@
+/**
+ * Headings
+ */
+/*
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font-family;
+}
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  height: auto !important;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Header
+ */
+
+.site-header {
+  padding-top: 64px;
+  .site-tagline {
+    color: $grey-color;
+    margin-top: 15px;
+    @include relative-font-size(1.125);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.5;
+    a,
+    a:visited,
+    a:hover {
+      text-decoration: none;
+      color: initial;
+    }
+  }
+}
+
+article {
+  hgroup {
+    text-align: center;
+    .page-heading {
+      margin-bottom: 0;
+    }
+    .page-subtitle {
+      color: $grey-color;
+    }
+  }
+  .page-content {
+    &.text {
+      max-width: 1024px;
+      margin: auto;
+    }
+  }
+}
+
+/**
+ * Content
+ */
+.page-heading {
+  text-align: center;
+}
+.page-content {
+  .wrapper {
+    max-width: 100%;
+  }
+  .page-intro {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}
+
+/**
+ * Site footer
+ */
+.site-footer {
+  .wrapper {
+    color: $grey-color;
+    text-align: center;
+    .svg-icon {
+      color: $grey-color;
+    }
+  }
+}
+
+/**
+ * Masonry
+ */
+
+.grid {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.grid-sizer,
+.grid-item {
+  width: calc(100% / 3 - 2%);
+}
+
+.grid-item {
+  height: 600px;
+  float: left;
+}
+
+.gutter-sizer { width: 2%; }

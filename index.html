@@ -14,9 +14,8 @@ class: home
   {% for item in sorted_collection %}
     <div class="grid-item">
       <a href="{{ item.link }}">
-        <div class="image-overlay"></div>
         <figure>
-          <img src="{{item.image_path | prepend: '/assets/img/home/'}}" alt="{{ item.title }}" />
+          <img src="{{item.image_path | prepend: '/assets/img/home/'}}" alt="{{ item.legend }}" />
           <figcaption>
             <h3>{{item.legend}}</h3>
           </figcaption>
