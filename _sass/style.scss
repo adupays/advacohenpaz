@@ -69,6 +69,11 @@ article {
 .page-content {
   .wrapper {
     max-width: 100%;
+    &.gallery {
+      .page-heading {
+        margin-bottom: 0;
+      }
+    }
   }
   .page-intro {
     max-width: 1200px;
@@ -94,25 +99,42 @@ article {
  * Masonry
  */
 
-.grid {
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
+.page-content {
+  .wrapper {
+    .grid {
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .grid-item {
+      float: left;
+    }
+    .gutter-sizer { width: 2%; }
+    &.home {
+      .grid-sizer,
+      .grid-item {
+        width: calc(100% / 3 - 2%);
+      }
+      .grid-item {
+        height: 600px;
+      }
+    }
+    &.collaborations {
+      .grid-sizer,
+      .grid-item {
+        width: calc(100% / 3 - 2%);
+      }
+    }
+    &.gallery {
+      .grid-sizer,
+      .grid-item {
+        width: calc(100% / 3 - 2%);
+      }
+    }
   }
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
 }
-
-.grid-sizer,
-.grid-item {
-  width: calc(100% / 3 - 2%);
-}
-
-.grid-item {
-  height: 600px;
-  float: left;
-}
-
-.gutter-sizer { width: 2%; }

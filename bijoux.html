@@ -1,10 +1,9 @@
 ---
 layout: page
 title: Bijoux
-pageTitle: Bijoux
 permalink: /bijoux/
 class: 'bijoux'
 ---
 
 {% assign collection = site.collections | where: "label", 'project_bijoux' | first %}
-{% assign sorted_collection = collection.docs | sort: 'rating' %}
+{% assign sorted_collection = collection.docs | sort: 'rank' %}

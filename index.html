@@ -1,12 +1,11 @@
 ---
 layout: default
-title: Accueil
 permalink: /
 class: home
 ---
 
-{% assign collection = site.collections | where: "label", 'gallery_home' | first %}
-{% assign sorted_collection = collection.docs | sort: 'rating' %}
+{% assign collection = site.collections | where: "label", 'home' | first %}
+{% assign sorted_collection = collection.docs | sort: 'rank' %}
 
 <div class="grid">
   <div class="grid-sizer"></div>
@@ -15,7 +14,7 @@ class: home
     <div class="grid-item">
       <a href="{{ item.link }}">
         <figure>
-          <img src="{{item.image_path | prepend: '/assets/img/home/'}}" alt="{{ item.legend }}" />
+          <img src="{{item.image_path | prepend: '/assets/img/500x/'}}" alt="{{ item.legend }}" />
           <figcaption>
             <h3>{{item.legend}}</h3>
           </figcaption>

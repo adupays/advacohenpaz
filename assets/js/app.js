@@ -48,14 +48,23 @@ if (pswpElement) {
         }
 
         linkEl = figureEl.children[0]; // <a> element
+        imgEl = linkEl.children[0]; // <img> element
 
         size = linkEl.getAttribute('data-size').split('x');
+
+        var title = imgEl.getAttribute('alt')
+        var credits = linkEl.getAttribute('data-credits')
+
+        if (credits) {
+          title += ' - @' + credits
+        }
 
         // create slide object
         item = {
           src: linkEl.getAttribute('href'),
           w: parseInt(size[0], 10),
-          h: parseInt(size[1], 10)
+          h: parseInt(size[1], 10),
+          title: title
         };
 
         if (figureEl.children.length > 1) {
@@ -99,7 +108,7 @@ if (pswpElement) {
       // find index of clicked item by looping through all child nodes
       // alternatively, you may define index via data- attribute
       var clickedGallery = clickedListItem.parentNode,
-        childNodes = clickedListItem.parentNode.childNodes,
+        childNodes = clickedListItem.parentNode.querySelectorAll('.grid-item'),
         numChildNodes = childNodes.length,
         nodeIndex = 0,
         index;

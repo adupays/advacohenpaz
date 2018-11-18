@@ -1,19 +1,16 @@
 ---
-layout: default
+layout: page
 class: gallery
 ---
 
 {% assign collection = site.collections | where: 'label', 'gallery_collaborations' | first %}
-{% assign sorted_collection = collection.docs | where: 'directory', page.directory | sort: 'rating' %}
+{% assign folder = page.folder | strip %}
+{% assign sorted_collection = collection.docs | where: 'folder', folder | sort: 'rank' %}
 
 <article>
   <hgroup>
-    {%- if page.pageTitle -%}
-    <h1 class="page-heading">{{ page.pageTitle }}</h1>
-    {%- endif -%}
-
-    {%- if page.subtitle -%}
-    <h2 class="page-subtitle">{{ page.subtitle }}</h2>
+    {%- if page.legend -%}
+    <h2 class="page-subtitle">{{ page.legend }}</h2>
     {%- endif -%}
   </hgroup>
 
@@ -46,8 +43,6 @@ class: gallery
           <div class="pswp__counter"></div>
 
           <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-          <button class="pswp__button pswp__button--share" title="Share"></button>
 
           <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 
@@ -91,11 +86,8 @@ class: gallery
       <div class="gutter-sizer"></div>
       {% for item in sorted_collection %}
         <figure class="grid-item">
-          <a href="{{item.image_path | prepend: '/assets/img/gallery/'}}" data-size="3755x5632">
-            <img src="{{item.image_path | prepend: '/assets/img/gallery/'}}" alt="{{item.legend}}" />
-            <figcaption>
-              <h3>{{item.legend}}</h3>
-            </figcaption>
+          <a href="{{item.image_path | prepend: '/assets/img/1200x/'}}" data-size="{{item.width}}x{{item.height}}" data-credits="{{item.credits}}">
+            <img src="{{item.image_path | prepend: '/assets/img/500x/'}}" alt="{{item.description}}" />
           </a>
         </figure>
       {% endfor %}
