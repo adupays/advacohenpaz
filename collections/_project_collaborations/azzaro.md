@@ -1,6 +1,5 @@
 ---
 layout: gallery
-folder: mosaique
 legend: Azzaro S/S 2015
 image_path: azzaro.jpg
 rank: 5

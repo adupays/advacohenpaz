@@ -1,6 +1,5 @@
 ---
 layout: gallery
-folder: mosaique
 legend: Givenchy F/W 16-17
 image_path: givenchy.jpg
 rank: 8

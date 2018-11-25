@@ -3,11 +3,11 @@ layout: page
 class: gallery
 ---
 
-{% assign collection = site.collections | where: 'label', 'gallery_collaborations' | first %}
+{% assign collection = site.collections | where: 'label', page.galleryFolder | first %}
 {% assign folder = page.folder | strip %}
 {% assign sorted_collection = collection.docs | where: 'folder', folder | sort: 'rank' %}
 
-<article>
+<article class="{{folder}}">
   <hgroup>
     {%- if page.legend -%}
     <h2 class="page-subtitle">{{ page.legend }}</h2>
@@ -81,6 +81,9 @@ class: gallery
 
 
   <section>
+    {%- if content -%}
+      <div class="page-intro">{{content}}</div>
+    {%- endif -%}
     <div class="grid ps-gallery">
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>

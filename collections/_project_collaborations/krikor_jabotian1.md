@@ -1,6 +1,5 @@
 ---
 layout: gallery
-folder: mosaique
 legend: Krikor Jabotian F/W 14-15
 image_path: krikor_jabotian1.jpg
 rank: 1

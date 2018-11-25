@@ -1,9 +1,27 @@
 ---
 layout: page
 title: Bijoux
+pageTitle: Bijoux
 permalink: /bijoux/
 class: 'bijoux'
 ---
 
 {% assign collection = site.collections | where: "label", 'project_bijoux' | first %}
 {% assign sorted_collection = collection.docs | sort: 'rank' %}
+
+<div class="grid">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  {% for item in sorted_collection %}
+    <div class="grid-item">
+      <a href="{{ item.url }}">
+        <figure>
+          <img src="{{item.image_path | prepend: '/assets/img/500x/'}}" alt="{{ item.legend }}" />
+          <figcaption>
+            <h3>{{item.legend}}</h3>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  {% endfor %}
+</div>

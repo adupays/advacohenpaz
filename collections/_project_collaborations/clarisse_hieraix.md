@@ -1,6 +1,5 @@
 ---
 layout: gallery
-folder: mosaique
 legend: Clarisse Hieraix S/S 2014
 image_path: clarisse_hieraix.jpg
 rank: 9

@@ -1,6 +1,5 @@
 ---
 layout: gallery
-folder: mosaique
 legend: Stephane Rolland F/W 15-16
 image_path: stephane_rolland1.jpg
 rank: 3

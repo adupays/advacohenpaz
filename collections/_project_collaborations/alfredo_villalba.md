@@ -1,6 +1,5 @@
 ---
 layout: gallery
-folder: mosaique
 legend:  Alfredo Villalba S/S 2017
 image_path: alfredo_villalba.jpg
 rank: 7

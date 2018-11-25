@@ -1,6 +1,5 @@
 ---
 layout: gallery
-folder: mosaique
 legend: Proenza Schouler F/W 16-17
 image_path: proenza_schouler.jpg
 rank: 6

@@ -1,14 +1,27 @@
 ---
 layout: page
 title: Créations textiles
-title: Créations textiles
+pageTitle: Créations textiles
 permalink: /creations/
 class: 'creations'
 ---
 
-<div class="page-intro">
-    Deux fois par an, j’ai mis en place une collection de maquettes en textile et silicone, renouvelant ainsi les propositions et permettant de nouvelles
-    prospections clients.
-    Réalisées chacune à l’aide de planches de tendances, de recherches
-    d’images, elles explorent différents univers, du floral au graphique, elles s’inspirent de techniques textiles traditionnelles ou s’aventurent vers des effets nouveaux, véritables terrains d’expérimentation.
+{% assign collection = site.collections | where: "label", 'project_creations' | first %}
+{% assign sorted_collection = collection.docs | sort: 'rank' %}
+
+<div class="grid">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  {% for item in sorted_collection %}
+    <div class="grid-item">
+      <a href="{{ item.url }}">
+        <figure>
+          <img src="{{item.image_path | prepend: '/assets/img/500x/'}}" alt="{{ item.legend }}" />
+          <figcaption>
+            <h3>{{item.legend}}</h3>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  {% endfor %}
 </div>

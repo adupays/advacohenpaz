@@ -69,16 +69,22 @@ defaults:
       type: 'project_collaborations'
     values:
       layout: gallery
+      menu: '/collaborations/'
+      galleryFolder: 'gallery_collaborations'
   - scope:
       path: ''
       type: 'project_creations'
     values:
       layout: gallery
+      menu: '/creations/'
+      galleryFolder: 'gallery_creations'
   - scope:
       path: ''
       type: 'project_bijoux'
     values:
       layout: gallery
+      menu: '/bijoux/'
+      galleryFolder: 'gallery_bijoux'
   - scope:
       path: ''
       type: 'gallery_collaborations'

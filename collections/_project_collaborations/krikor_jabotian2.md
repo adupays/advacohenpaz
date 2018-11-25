@@ -1,6 +1,5 @@
 ---
 layout: gallery
-folder: mosaique
 legend: Krikor Jabotian S/S 2016
 image_path: krikor_jabotian2.jpg
 rank: 2
