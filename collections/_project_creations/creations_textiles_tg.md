@@ -13,3 +13,5 @@ Deux fois par an, j’ai mis en place une collection de maquettes en textile et 
 prospections clients.
 Réalisées chacune à l’aide de planches de tendances, de recherches
 d’images, elles explorent différents univers, du floral au graphique, elles s’inspirent de techniques textiles traditionnelles ou s’aventurent vers des effets nouveaux, véritables terrains d’expérimentation.
+
+<a target="_blank" href="https://tzurigueta.com/catalogues/">Site web de Tzuri Gueta</a>

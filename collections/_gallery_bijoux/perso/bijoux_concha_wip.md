@@ -2,8 +2,8 @@
 layout: gallery
 width: 1200
 height: 1800
-folder: concha
+folder: perso
 image_path: bijoux_concha_wip.jpg
 description: Work in progress
-rank: 4
+rank: 6
 ---

@@ -1,49 +1,16 @@
 <ul class="social-media-list">
-  {%- if site.dribbble_username -%}<li><a href="https://dribbble.com/{{ site.dribbble_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#dribbble' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.dribbble_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.facebook_username -%}<li><a href="https://www.facebook.com/{{ site.facebook_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#facebook' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.facebook_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.flickr_username -%}<li><a href="https://www.flickr.com/photos/{{ site.flickr_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#flickr' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.flickr_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.github_username -%}<li><a href="https://github.com/{{ site.github_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.github_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.instagram_username -%}<li><a href="https://instagram.com/{{ site.instagram_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#instagram' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.instagram_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.linkedin_username -%}<li><a target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use>
-      </svg> <span class="username"></span></a></li>{%- endif -%}
-  {%- if site.pinterest_username -%}<li><a href="https://www.pinterest.com/{{ site.pinterest_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#pinterest' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.pinterest_username| escape }}</span></a></li>{%- endif -%}
-  {%- for mst in site.mastodon -%}{%- if mst.username and mst.instance -%}<li><a href="https://{{ mst.instance| cgi_escape | escape}}/@{{mst.username}}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#mastodon' | relative_url }}"></use>
-      </svg> <span class="username">{{ mst.username|escape }}</span></a></li>{%- endif -%}{%- endfor -%}
-  {%- if site.twitter_username -%}<li><a href="https://www.twitter.com/{{ site.twitter_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#twitter' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.twitter_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.youtube_username -%}<li><a href="https://youtube.com/{{ site.youtube_username| cgi_escape | escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#youtube' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.youtube_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.googleplus_username -%}<li><a href="https://plus.google.com/{{ site.googleplus_username| escape }}"><svg
-        class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#googleplus' | relative_url }}"></use>
-      </svg> <span class="username">{{ site.googleplus_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.rss -%}<li><a href="{{ 'feed.xml' | relative_url }}"><svg class="svg-icon">
-        <use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
-      </svg> <span>{{ site.rss | escape }}</span></a></li>{%- endif -%}
+  {%- if site.linkedin_username -%}
+    <li>
+      <a target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}">
+        <?xml version="1.0" ?><svg class="svg-icon" height="50px" version="1.1" viewBox="0 0 50 50" width="50px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#828282" id="LinkedIn"><path class="svg-icon" d="M25,50 C38.8071194,50 50,38.8071194 50,25 C50,11.1928806 38.8071194,0 25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 Z M25,47 C37.1502651,47 47,37.1502651 47,25 C47,12.8497349 37.1502651,3 25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 Z M14,20.1180479 L14,34.6581834 L18.7100851,34.6581834 L18.7100851,20.1180479 L14,20.1180479 Z M16.6646962,13 C15.0534058,13 14,14.0858611 14,15.5115122 C14,16.9076331 15.0222711,18.0247614 16.6035556,18.0247614 L16.6336556,18.0247614 C18.2759867,18.0247614 19.2988222,16.9076331 19.2988222,15.5115122 C19.2682519,14.0858611 18.2759867,13 16.6646962,13 Z M30.5769213,20.1180479 C28.076176,20.1180479 26.9565501,21.5293199 26.3314108,22.5193527 L26.3314108,20.4598644 L21.6207614,20.4598644 C21.6828427,21.8242356 21.6207614,35 21.6207614,35 L26.3314108,35 L26.3314108,26.8795887 C26.3314108,26.445032 26.3619812,26.0115368 26.4865199,25.7004084 C26.826932,24.83226 27.6020069,23.9334233 28.9032674,23.9334233 C30.6083381,23.9334233 31.2899149,25.2667202 31.2899149,27.2206333 L31.2899149,34.999614 L35.9998119,34.999614 L36,26.6627446 C36,22.1966439 33.6763743,20.1180479 30.5769213,20.1180479 Z M30.5769213,20.1180479" id="Oval-1"/></g></g></svg>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if site.email -%}
+  <li>
+    <a href="mailto:{{ site.email }}">
+      <?xml version="1.0" ?><svg class="svg-icon" height="50px" version="1.1" viewBox="0 0 50 50" width="50px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#828282" id="Mail"><path d="M25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 C38.8071194,50 50,38.8071194 50,25 C50,11.1928806 38.8071194,0 25,0 Z M25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 C37.1502651,47 47,37.1502651 47,25 C47,12.8497349 37.1502651,3 25,3 Z M37,31.9646738 L37,17 L28.262875,25.4642914 L37,31.9646738 Z M13,31.9646738 L21.7369375,25.4633812 L13,17 L13,31.9646738 Z M22.9140156,26.604743 L13,33 L37,33 L27.08575,26.604743 L25,28.625083 L22.9140156,26.604743 Z M13.72,17 L25,26.0581312 L36.28,17 L13.72,17 Z M13.72,17" id="Oval-1"/></g></g></svg>
+    </a>
+  </li>
+{%- endif -%}
 </ul>

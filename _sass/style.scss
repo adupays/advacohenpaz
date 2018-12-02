@@ -89,8 +89,17 @@ article {
   .wrapper {
     color: $grey-color;
     text-align: center;
-    .svg-icon {
-      color: $grey-color;
+    .social-media-list {
+      li {
+        display: inline-block;
+        .svg-icon {
+          width: 40px;
+          height: 40px;
+          display: inline-block;
+          padding-right: 10px;
+          vertical-align: text-top;
+        }
+      }
     }
   }
 }
@@ -114,18 +123,25 @@ article {
     .grid-item {
       float: left;
       figure {
+        position: relative;
         img {
           margin: auto;
+          width: 100%;
         }
-        /*
         figcaption {
           position: absolute;
-          top: 0;
+          bottom: 0;
+          color: white;
           left: 0;
+          text-transform: uppercase;
           width: 100%;
-          height: 100%;
+          display: block;
+          padding: 10px 0;
+          background: black;
+          h3 {
+            margin-bottom: 0;
+          }
         }
-        */
       }
     }
     .gutter-sizer { width: 2%; }
@@ -133,9 +149,6 @@ article {
       .grid-sizer,
       .grid-item {
         width: calc(100% / 3 - 2%);
-      }
-      .grid-item {
-        height: 600px;
       }
     }
     &.collaborations {
@@ -172,6 +185,97 @@ article {
         .grid-item {
           width: calc(100% / 4 - 2%);
         }
+      }
+    }
+  }
+}
+
+/**
+ * Photoswipe
+ */
+
+.pswp__caption__center {
+  text-align: center !important;
+}
+
+@include media-query($on-tablette) {
+  .page-content {
+    .wrapper {
+      max-width: 90%;
+      &.home, &.collaborations, &.creations, &.bijoux, &.gallery {
+        .grid-sizer,
+        .grid-item {
+          width: calc(100% / 2 - 2%);
+        }
+        .grid-item {
+          height: initial;
+          figure {
+            figcaption {
+              h3 {
+                font-size: 1em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-query($on-mobile) {
+  .site-header {
+    padding-top: 36px;
+    border-bottom: 1px solid #e8e8e8;
+    .site-title {
+      margin-bottom: 0;
+    }
+    .site-tagline {
+      margin-top: 0;
+    }
+    .site-nav {
+      top: 0;
+      right: 0;
+      border: none;
+      border-radius: 0;
+      background-color: transparent;
+      z-index: 1;
+      .trigger {
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        background-color: rgba(255, 255, 255, 0.95);
+        font-size: 1.2em;
+        padding-top: calc(100vh - 150%);
+        .page-link {
+          margin: initial;
+          &.active {
+            border: none;
+            color: $brand-color;
+          }
+        }
+      }
+    }
+  }
+  .page-content {
+    .wrapper {
+      max-width: 90%;
+      .page-heading {
+        font-size: 1.3em;
+      }
+      &.home, &.collaborations, &.creations, &.bijoux, &.gallery {
+        .grid-sizer,
+        .grid-item {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+
+  article {
+    hgroup {
+      h2 {
+        font-size: 1.1em
       }
     }
   }
