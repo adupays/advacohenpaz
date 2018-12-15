@@ -8,15 +8,16 @@ class: 'bijoux'
 
 {% assign collection = site.collections | where: "label", 'project_bijoux' | first %}
 {% assign sorted_collection = collection.docs | sort: 'rank' %}
+{% assign imagefolder = '/assets/img/500x/' | prepend: site.baseurl %}
 
 <div class="grid">
   <div class="grid-sizer"></div>
   <div class="gutter-sizer"></div>
   {% for item in sorted_collection %}
     <div class="grid-item">
-      <a href="{{ item.url }}">
+      <a href="{{ item.url | prepend: site.baseurl }}">
         <figure>
-          <img src="{{item.image_path | prepend: '/assets/img/500x/'}}" alt="{{ item.legend }}" />
+          <img src="{{item.image_path | prepend: imagefolder}}" alt="{{ item.legend }}" />
           <figcaption>
             <h3>{{item.legend}}</h3>
           </figcaption>

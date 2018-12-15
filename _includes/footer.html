@@ -1,5 +1,5 @@
 <footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+  <data class="u-url" href="{{ "/" | prepend: site.baseurl }}"></data>
   <div class="wrapper">
     {%- include social.html -%}
     {%- if site.author -%}
@@ -10,10 +10,10 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="{{ "/assets/js/masonry.pkgd.min.js" | relative_url }}"></script>
-<script type="text/javascript" src="{{ "/assets/js/imagesloaded.pkgd.min.js" | relative_url }}"></script>
+<script type="text/javascript" src="{{ "/assets/js/masonry.pkgd.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/assets/js/imagesloaded.pkgd.min.js" | prepend: site.baseurl }}"></script>
 <!-- Core JS file -->
-<script type="text/javascript" src="{{ "/assets/js/photoswipe.min.js" | relative_url }}"></script>
+<script type="text/javascript" src="{{ "/assets/js/photoswipe.min.js" | prepend: site.baseurl }}"></script>
 <!-- UI JS file -->
-<script type="text/javascript" src="{{ "/assets/js/photoswipe-ui-default.min.js" | relative_url }}"></script>
-<script type="text/javascript" src="{{ "/assets/js/app.js" | relative_url }}"></script>
+<script type="text/javascript" src="{{ "/assets/js/photoswipe-ui-default.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/assets/js/app.js" | prepend: site.baseurl }}"></script>

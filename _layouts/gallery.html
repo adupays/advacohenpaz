@@ -6,6 +6,8 @@ class: gallery
 {% assign collection = site.collections | where: 'label', page.galleryFolder | first %}
 {% assign folder = page.folder | strip %}
 {% assign collection_docs = collection.docs | where: 'folder', folder %}
+{% assign imagefolder500 = '/assets/img/500x/' | prepend: site.baseurl %}
+{% assign imagefolder1200 = '/assets/img/1200x/' | prepend: site.baseurl %}
 
 {% if collection_docs %}
   {% assign sorted_collection = collection_docs | sort: 'rank' %}
@@ -91,8 +93,8 @@ class: gallery
         <div class="gutter-sizer"></div>
         {% for item in sorted_collection %}
           <figure class="grid-item">
-            <a href="{{item.image_path | prepend: '/assets/img/1200x/'}}" data-size="{{item.width}}x{{item.height}}" data-credits="{{item.credits}}">
-              <img src="{{item.image_path | prepend: '/assets/img/500x/'}}" alt="{{item.description}}" />
+            <a href="{{item.image_path | prepend: imagefolder1200}}" data-size="{{item.width}}x{{item.height}}" data-credits="{{item.credits}}">
+              <img src="{{item.image_path | prepend: imagefolder500}}" alt="{{item.description}}" />
             </a>
           </figure>
         {% endfor %}

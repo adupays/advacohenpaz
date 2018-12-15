@@ -5,4 +5,4 @@ permalink: /about/
 class: 'about'
 ---
 
-![Adva Cohen-Paz]({{ "/assets/img/about.jpg" | relative_url }})
+![Adva Cohen-Paz]({{ "/assets/img/about.jpg" | prepend: site.baseurl }})
