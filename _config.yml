@@ -36,33 +36,24 @@ header_pages:
 collections_dir: collections
 collections:
   home:
-    output: true
     permalink: /:name
   project_collaborations:
     output: true
     permalink: /collaborations/:name
   gallery_collaborations:
-    output: true
     permalink: /:name
   project_creations:
     output: true
     permalink: /creations/:name
   gallery_creations:
-    output: true
     permalink: /:name
   project_bijoux:
     output: true
     permalink: /bijoux/:name
   gallery_bijoux:
-    output: true
     permalink: /:name
 
 defaults:
-  - scope:
-      path: ''
-      type: 'home'
-    values:
-      layout: gallery
   - scope:
       path: ''
       type: 'project_collaborations'
@@ -84,21 +75,6 @@ defaults:
       layout: gallery
       menu: '/bijoux/'
       galleryFolder: 'gallery_bijoux'
-  - scope:
-      path: ''
-      type: 'gallery_collaborations'
-    values:
-      layout: gallery
-  - scope:
-      path: ''
-      type: 'gallery_creations'
-    values:
-      layout: gallery
-  - scope:
-      path: ''
-      type: 'gallery_bijoux'
-    values:
-      layout: gallery
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
