@@ -18,7 +18,7 @@ tagline: Styliste textile et bijoux
 email: contact@advacohenpaz.fr
 description: >- # this means to ignore newlines until "baseurl:"
   Portfolio d'Adva Cohen-Paz, diplomée du Studio Berçot. Spécialisée dans la création textile, la broderie et le design de bijoux.
-baseurl: '' # the subpath of your site, e.g. /blog
+baseurl: '/advacohenpaz' # the subpath of your site, e.g. /blog
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
 linkedin_username: adva-cohen-paz-a3194b58
 
