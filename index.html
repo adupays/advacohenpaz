@@ -6,7 +6,7 @@ class: home
 
 {% assign collection = site.collections | where: "label", 'home' | first %}
 {% assign sorted_collection = collection.docs | sort: 'rank' %}
-{% assign imagefolder = '/assets/img/500x/' | prepend: site.baseurl %}
+{% assign imagefolder = '/assets/img/medium/' | prepend: site.baseurl %}
 
 <div class="grid">
   <div class="grid-sizer"></div>

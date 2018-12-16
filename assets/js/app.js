@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
       // (children of gallerySelector)
       var parseThumbnailElements = function (el) {
         var thumbElements = el.querySelectorAll('.grid-item'),
-          numNodes = thumbElements.length,
-          items = [],
-          figureEl,
-          linkEl,
-          size,
-          item;
+        numNodes = thumbElements.length,
+        items = [],
+        figureEl,
+        linkEl,
+        size,
+        item;
 
         for (var i = 0; i < numNodes; i++) {
 
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
           var title = imgEl.getAttribute('alt')
           var credits = linkEl.getAttribute('data-credits')
+          var mediumSize = linkEl.getAttribute('data-medium-size').split('x')
 
           if (credits) {
             title += ' - @' + credits
@@ -75,6 +76,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
             w: parseInt(size[0], 10),
             h: parseInt(size[1], 10),
             title: title
+          };
+
+          item.mediumImage = {
+            src: item.src.replace('large', 'medium'),
+            w: parseInt(mediumSize[0], 10),
+            h: parseInt(mediumSize[1], 10),
+          };
+
+          item.originalImage = {
+            src: item.src,
+            w: item.w,
+            h: item.h
           };
 
           if (figureEl.children.length > 1) {
@@ -118,10 +131,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         // find index of clicked item by looping through all child nodes
         // alternatively, you may define index via data- attribute
         var clickedGallery = clickedListItem.parentNode,
-          childNodes = clickedListItem.parentNode.querySelectorAll('.grid-item'),
-          numChildNodes = childNodes.length,
-          nodeIndex = 0,
-          index;
+        childNodes = clickedListItem.parentNode.querySelectorAll('.grid-item'),
+        numChildNodes = childNodes.length,
+        nodeIndex = 0,
+        index;
 
         for (var i = 0; i < numChildNodes; i++) {
           if (childNodes[i].nodeType !== 1) {
@@ -147,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       // parse picture index and gallery index from URL (#&pid=1&gid=2)
       var photoswipeParseHash = function () {
         var hash = window.location.hash.substring(1),
-          params = {};
+        params = {};
 
         if (hash.length < 5) {
           return params;
@@ -174,27 +187,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       var openPhotoSwipe = function (index, galleryElement, disableAnimation, fromURL) {
         var pswpElement = document.querySelectorAll('.pswp')[0],
-          gallery,
-          options,
-          items;
+        gallery,
+        options,
+        items;
 
         items = parseThumbnailElements(galleryElement);
 
         // define options (if needed)
         options = {
-
           // define gallery index (for URL)
           galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 
           getThumbBoundsFn: function (index) {
             // See Options -> getThumbBoundsFn section of documentation for more info
             var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
-              pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-              rect = thumbnail.getBoundingClientRect();
-
+            pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+            rect = thumbnail.getBoundingClientRect();
             return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
           }
-
         };
 
         // PhotoSwipe opened from URL
@@ -227,6 +237,69 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         // Pass data to PhotoSwipe and initialize it
         gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+        // create variable that will store real size of viewport
+        var realViewportWidth,
+        useLargeImages = false,
+        firstResize = true,
+        imageSrcWillChange;
+
+        // beforeResize event fires each time size of gallery viewport updates
+        gallery.listen('beforeResize', function() {
+          // gallery.viewportSize.x - width of PhotoSwipe viewport
+          // gallery.viewportSize.y - height of PhotoSwipe viewport
+          // window.devicePixelRatio - ratio between physical pixels and device independent pixels (Number)
+          //                          1 (regular display), 2 (@2x, retina) ...
+
+
+          // calculate real pixels when size changes
+          realViewportWidth = gallery.viewportSize.x * window.devicePixelRatio;
+
+          // Code below is needed if you want image to switch dynamically on window.resize
+
+          // Find out if current images need to be changed
+          if (useLargeImages && realViewportWidth < 1000) {
+            useLargeImages = false;
+            imageSrcWillChange = true;
+          } else if (!useLargeImages && realViewportWidth >= 1000) {
+            useLargeImages = true;
+            imageSrcWillChange = true;
+          }
+
+          // Invalidate items only when source is changed and when it's not the first update
+          if (imageSrcWillChange && !firstResize) {
+            // invalidateCurrItems sets a flag on slides that are in DOM,
+            // which will force update of content (image) on window.resize.
+            gallery.invalidateCurrItems();
+          }
+
+          if (firstResize) {
+            firstResize = false;
+          }
+
+          imageSrcWillChange = false;
+        });
+
+        // gettingData event fires each time PhotoSwipe retrieves image source & size
+        gallery.listen('gettingData', function(index, item) {
+          // Set image source & size based on real viewport width
+          if (useLargeImages) {
+            item.src = item.originalImage.src;
+            item.w = item.originalImage.w;
+            item.h = item.originalImage.h;
+          } else {
+            item.src = item.mediumImage.src;
+            item.w = item.mediumImage.w;
+            item.h = item.mediumImage.h;
+          }
+
+          // It doesn't really matter what will you do here,
+          // as long as item.src, item.w and item.h have valid values.
+          //
+          // Just avoid http requests in this listener, as it fires quite often
+
+        });
+
         gallery.init();
       };
 
@@ -248,5 +321,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // execute above function
     initPhotoSwipeFromDOM('.ps-gallery')
   }
-
 })

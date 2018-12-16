@@ -175,10 +175,16 @@ article {
       .grid-item {
         width: calc(100% / 3 - 2%);
       }
-      .alfredo-villalba-SS-2017, .givenchy-FW-16-17 {
+      .givenchy-FW-16-17 {
         .grid-sizer,
         .grid-item {
           width: calc(100% / 2 - 2%);
+        }
+      }
+      .proenza-schouler-FW-16-17, .alfredo-villalba-SS-2017 {
+        .grid-sizer,
+        .grid-item {
+          width: calc(100% / 4 - 2%);
         }
       }
       .clarisse-hieraix-FW-2014 {
