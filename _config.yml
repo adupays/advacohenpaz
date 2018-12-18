@@ -32,6 +32,7 @@ header_pages:
   - collaborations.html
   - creations.html
   - bijoux.html
+  - about.html
 
 collections_dir: collections
 collections:

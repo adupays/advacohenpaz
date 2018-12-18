@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
           // calculate real pixels when size changes
-          realViewportWidth = gallery.viewportSize.x * window.devicePixelRatio;
+          realViewportWidth = gallery.viewportSize.x;
 
           // Code below is needed if you want image to switch dynamically on window.resize
 
