@@ -20,6 +20,31 @@ img {
   padding: 0;
 }
 
+a.btn.cv {
+  background-color: #000000;
+  border: none;
+  color: #ffffff;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 1em;
+  float: right;
+  margin-bottom: 30px;
+  :hover {
+    background-color: $grey-color;
+    color: #ffffff;
+  }
+  :visited {
+    color: #ffffff;
+  }
+}
+
+a.credits {
+  color: #ffffff;
+  :hover, :visited {
+    color: #ffffff;
+  }
+}
+
 /**
  * Header
  */
@@ -79,6 +104,9 @@ article {
     max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 15px;
+    .about-content {
+      clear: both;
+    }
   }
 }
 

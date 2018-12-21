@@ -67,7 +67,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
           var mediumSize = linkEl.getAttribute('data-medium-size').split('x')
 
           if (credits) {
-            title += ' - @' + credits
+            if (credits.includes('http')) {
+              title += ' <a class="credits" target="_blank" href="' + credits + '"> - Source</a>'
+            } else {
+              title += ' - @' + credits
+            }
           }
 
           // create slide object
